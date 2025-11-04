@@ -75,6 +75,10 @@ main { padding: 0; }
   .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
+.skills-list { display: flex; flex-direction: column; gap: 4px; }
+.skill-item { line-height: 1.5; }
+.skill-item strong { margin-right: 4px; }
+
 .card { 
   background: var(--card); 
   border: 1px solid var(--border); 
@@ -105,6 +109,12 @@ main { padding: 0; }
 .quote p { margin: 0 0 4px; font-style: italic; }
 .quote footer { color: var(--muted); font-style: normal; font-size: 13px; }
 #recommendations-image { margin-top: 12px; }
+
+/* Automations */
+.automation-item { margin-bottom: 16px; }
+.automation-item h3 { font-size: 16px; margin: 0 0 6px; font-family: 'Helvetica', 'Arial', sans-serif; font-weight: bold; }
+.automation-item p { margin: 0 0 10px; }
+.automation-item img { margin-top: 8px; margin-bottom: 8px; }
 
 /* Contact */
 .contact { text-align: center; }

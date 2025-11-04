@@ -17,7 +17,11 @@ body {
   line-height: 1.6;
   font-size: 17px;
 }
-img { max-width: 100%; display: block; border: 1px solid var(--border); }
+img { max-width: 100%; display: block; border: 1px solid var(--border); cursor: pointer; }
+img.zoomable { cursor: zoom-in; }
+img.zoomable:hover { opacity: 0.9; }
+a img { cursor: pointer; }
+#profile-pic { cursor: default; }
 a { color: var(--primary); text-decoration: underline; }
 a:hover { text-decoration: none; }
 strong {
@@ -148,5 +152,71 @@ main { padding: 0; }
 
 @media (max-width: 768px) {
   .footer-nav { flex-direction: column; gap: 8px; }
+}
+
+/* Image Lightbox/Modal */
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  overflow: auto;
+  animation: fadeIn 0.2s;
+}
+
+.image-modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 90vh;
+  object-fit: contain;
+  animation: zoomIn 0.2s;
+}
+
+.image-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.image-modal-close:hover {
+  color: #ccc;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); }
+  to { transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+  .image-modal-close {
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+  }
+  .image-modal-content {
+    max-width: 95%;
+    max-height: 85vh;
+  }
 }
 
